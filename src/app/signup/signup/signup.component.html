@@ -1,0 +1,56 @@
+<div class="login-page">
+    <div class="login-body" fxLayout="row" fxLayoutAlign="center">
+      <div class="login-content">
+        <form [formGroup]="loginFormGroup" (ngSubmit)="onSubmit(loginFormGroup.value)" class="form">
+          
+          <mat-form-field class="form-element">
+            <input matInput placeholder="First Name" formControlName="firstName">
+            <mat-error *ngIf="!loginFormGroup.controls['firstName'].valid && loginFormGroup.controls['firstName'].touched">
+              {{commonError("firstName")}}
+            </mat-error>
+          </mat-form-field>
+          
+          <mat-form-field class="form-element">
+            <input matInput placeholder="Last Name" formControlName="lastName">
+            <mat-error *ngIf="!loginFormGroup.controls['lastName'].valid && loginFormGroup.controls['lastName'].touched">
+              {{commonError("lastName")}}
+            </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field class="form-element">
+            <input matInput placeholder="Mobile Number" formControlName="mobileNo">
+            <mat-error *ngIf="!loginFormGroup.controls['mobileNo'].valid && loginFormGroup.controls['mobileNo'].touched">
+              {{phoneNumError()}}
+            </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field class="form-element">
+            <input matInput placeholder="Email" formControlName="email">
+            <mat-error *ngIf="!loginFormGroup.controls['email'].valid && loginFormGroup.controls['email'].touched">
+            {{ getErrorEmail() }}
+            </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field class="form-element">
+            <input matInput placeholder="Password" type="password" formControlName="password">
+            <mat-error *ngIf="!loginFormGroup.controls['password'].valid && loginFormGroup.controls['password'].touched">
+              {{ getErrorPassword() }}
+            </mat-error>
+          </mat-form-field>
+  
+          <div class="form-element">
+            <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!loginFormGroup.valid">Submit Form</button>
+          </div>
+  
+        </form>
+        <div class="button-content">
+          <div class="new-user">
+              Already have an account?<a href="#" routerLink="/login">Log in</a>
+          </div>
+        </div>
+        <div>
+          <span>{{loginService.errmessage}}</span>
+        </div>
+      </div>
+    </div>
+  </div>

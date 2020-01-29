@@ -1,0 +1,46 @@
+.main-div{
+    width: 100%;
+    max-width: 1000px;
+    margin: 0% auto;
+    padding: 20px 0px;
+    color: #707070;
+}
+.num > span{
+    font-size: 18px;
+    color: #707070 !important;
+}
+.question{
+    font-size: 18px;
+    margin-top: 0px;
+}
+
+.question-radio{
+    width: 100%;
+}
+
+.questions{
+    padding-bottom: 40px;
+    display: flex;
+}
+
+.form-field{
+    width: 100%;
+    max-width: 600px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.header-field{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 25px;
+    margin: 0px;
+}
+
+.suggestions{
+    font-size: 14px !important;
+    font-family: 'Open Sans',sans-serif;
+    color: #707070 !important;
+}
+
+p{
+    color: #707070;
+}

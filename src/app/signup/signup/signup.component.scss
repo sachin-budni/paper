@@ -1,0 +1,36 @@
+.login-page{
+    width: 100%;
+    height: 100%;
+}
+
+.form-element{
+    width: 100%;
+}
+.button{
+    width: 100%;
+}
+.login-body{
+    display: flex;
+    padding: 10%;
+    justify-content: center;
+}
+.login-content{
+    width: 400px;
+}
+.button-content{
+    padding: 1px;
+}
+
+.google-button{
+    padding: 10px 0px;
+}
+
+.new-user{
+    font-family: 'Poppins',Regular;
+    font-size: 12px;
+    padding: 10px 0px;
+}
+
+.new-user a{
+    text-decoration: none;
+}

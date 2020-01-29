@@ -1,0 +1,49 @@
+<div class="main-div">
+  <mat-card>
+    <p class="header-field">{{headerData.headerName}}</p>
+    <p class="suggestions" [innerHTML]="headerData.subHeader"></p>
+    
+    <div style="padding: 10px 0px;"></div>
+    
+    <form [formGroup]="examFormGroup">
+      <div *ngFor="let field of allFields">
+        <mat-form-field class="form-field">
+          <input type="text" matInput [formControlName]="field.fieldName" [placeholder]="field.placeHolder" required="field.required">
+          <mat-error *ngIf="!examFormGroup.controls[field.fieldName].valid && examFormGroup.controls[field.fieldName].touched">
+            {{field.fieldName}} is required
+        </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div style="padding: 10px 0px;"></div>
+
+      <ng-container *ngIf="$questions | async as questions">
+        <div>
+          <p class="header-field">{{questionPaper.headerName}}</p>
+          <div class="suggestions" [innerHTML]="questionPaper.suggestion"></div>
+        </div>
+        <div style="padding: 20px 0px;"></div>
+        <div formGroupName="answers">
+          <div *ngFor="let question of questions.questions; let num=index" class="questions">
+            <div class="num">
+              <span>{{num+1}}.</span>
+            </div>
+            <div class="question-radio">
+              <p class="question">{{question.question}}</p>
+                <mat-radio-group class="radio-button" [formControlName]="num">
+                  <mat-radio-button *ngFor="let option of question.options" 
+                  (change)="changeValue($event,num)" [value]="option.option" fxFlex="50">
+                  {{option.option}}
+                </mat-radio-button>
+                </mat-radio-group>
+
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </form>
+    <div fxLayout="row" fxLayoutAlign="flex-start center">
+      <button mat-stroked-button (click)="submitAnswers()">Submit-Answers</button>
+    </div>
+  </mat-card>
+</div>

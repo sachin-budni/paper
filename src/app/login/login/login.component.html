@@ -1,0 +1,86 @@
+<div class="login-page" *ngIf="flag">
+    <div class="login-body" fxLayout.md="column" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center space-around start">
+      <div>
+        <img src="https://www.willntrix.com/assets/login.svg" alt="Login Image Of Willntrix" style="width: 90%;opacity: 0.8;">
+      </div>
+      <!-- <mat-card class="top-card" fxHide.md fxHide.sm fxHide.xs></mat-card> -->
+      <mat-card>
+        <div class="login-content">
+          <mat-card-header>
+            <mat-card-title class="hello">Hi Will-N!</mat-card-title>
+            <mat-card-subtitle>Don't have an account? <a href="#" routerLink="/register">Sign up</a></mat-card-subtitle>
+          </mat-card-header>
+          <!-- <div class="google-button">
+            <button mat-raised-button color="primary" type="submit" class="google button" (click)="GoogleLogin()"> <img class="googleimage" src="assets/google.png" alt=" "> Google Login</button>
+          </div> -->
+          <!-- <div class="or">
+              <span>OR</span>
+          </div> -->
+          <form [formGroup]="loginFormGroup" (ngSubmit)="onSubmit(loginFormGroup.value)" class="form">
+            <label>Email *</label>
+            <mat-form-field class="form-element" appearance="outline">
+              <input matInput placeholder="Email" name="email" formControlName="email">
+              <mat-error *ngIf="!loginFormGroup.controls['email'].valid && loginFormGroup.controls['email'].touched">
+              {{ getErrorEmail('email') }}
+              </mat-error>
+            </mat-form-field>
+            <label>Password *</label>
+            <mat-form-field class="form-element" appearance="outline">
+              <input matInput placeholder="Password" name="password" type="password" formControlName="password">
+              <mat-error *ngIf="!loginFormGroup.controls['password'].valid && loginFormGroup.controls['password'].touched">
+                {{ getErrorPassword() }}
+              </mat-error>
+            </mat-form-field>
+            <div class="forget-password">
+              <a (click)="resetPassword()">Forget Password</a>
+            </div>
+            <div class="form-element">
+              <button mat-raised-button type="submit" class="button" [disabled]="!loginFormGroup.valid">Login</button>
+            </div>
+    
+          </form>
+          <div class="or">
+              <hr/>
+              <div class="other-source">
+                <span>or connect with</span>
+              </div>
+          </div>
+          <div class="google-button">
+            <button mat-raised-button type="submit" class="google button" (click)="GoogleLogin()"> 
+              <img class="googleimage" src="assets/google.png" alt=" "> 
+              Sign In with Google
+            </button>
+          </div>
+          <!-- <div class="button-content">
+            <div class="new-user">
+                Don't have an account? <a href="#" routerLink="/register">Sign up</a>
+            </div>
+          </div> -->
+        </div>
+      </mat-card>
+      <!-- <mat-card class="botton-card" fxHide.md fxHide.sm fxHide.xs></mat-card> -->
+    </div>
+  </div>
+  
+  <div class="forget-Password-page" *ngIf="!flag">
+    <div class="forget-password-content">
+        <form [formGroup]="forgetPassword" (ngSubmit)="forgetPasswordSubmit(forgetPassword.value)" class="form">
+          
+            <mat-form-field class="form-element">
+              <input matInput placeholder="Email" name="email" formControlName="forgotEmail">
+              <mat-error *ngIf="!forgetPassword.controls['forgotEmail'].valid && forgetPassword.controls['forgotEmail'].touched">
+              {{ getErrorEmail('forgotEmail') }}
+              </mat-error>
+            </mat-form-field>
+  
+            <div class="form-element">
+              <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!forgetPassword.valid">Send</button>
+            </div>
+        </form>
+      </div>
+      <div class="button-content">
+        <div class="back-to-login">
+            <a (click)="flag = true"><mat-icon class="backIcon">arrow_back_ios</mat-icon> Back to Login</a>
+        </div>
+      </div>
+  </div>

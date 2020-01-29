@@ -1,0 +1,10 @@
+<div class="main-div">
+    <mat-card>
+        <div *ngFor="let paper of $questionPaperList | async;let i=index" fxLayout="row" fxLayoutAlign="start center">
+            <p>{{i+1+".    "}}</p>
+            <a [routerLink]="['/paper',paper.url]" class="paper">
+                <P>{{" "+paper.questionPaperName}}</P>
+            </a>
+        </div>
+    </mat-card>
+</div>

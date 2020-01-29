@@ -1,0 +1,12 @@
+<!-- <ng-container *ngIf="!flag">
+  <mat-spinner>
+  
+  </mat-spinner>
+</ng-container> -->
+
+<ng-container *ngFor="let answer of answers | async;let i=index">
+  <p>question No - {{i+1}}</p>
+  <p>answers - {{answer.answer}}</p>
+  <p>output - {{answer.output}}</p>
+  <div style="padding: 10px 10px;"></div>
+</ng-container>

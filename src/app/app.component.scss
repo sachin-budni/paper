@@ -1,0 +1,119 @@
+@import '../theme.scss';
+.example-container {
+    display: flex;
+    flex-direction: column;
+    // position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  .example-toolbar{
+    height: 45px;
+  }
+  .example-app-log{
+    width: 140px;
+    cursor: pointer;
+  }
+  .prograssBarDiv{
+    background-color: rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  .example-sidenav-container {
+    flex: 1;
+    top: 56px;
+  }
+  
+  .example-is-mobile .example-sidenav-container {
+    flex: 1 0 auto;
+  }
+  .hiddingSideNav{
+    display: none;
+  }
+  .extraspace{
+    flex: 1 1 auto;
+  }
+  
+  mat-nav-list a{
+    width: 200px;
+  }
+  // mat-toolbar button{
+  //   font-size: 20px;
+  // }
+
+.spinnerdiv{
+  width: 100%;
+  margin: 0%;
+  text-align: center;
+  padding: 15% 0% 0% 0%;
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
+}
+.spin{
+  display: inline-block;
+  margin-right: 25px;
+}
+.subscript{
+  font-size: 12px;
+}
+.mainheads{
+  height: 30px;
+}
+
+
+
+//////////////////////////@at-root
+
+.path{
+  position: relative;
+  width:100%; 
+  display: flex;
+}
+.path span{
+  flex: 1 1 auto;
+}
+.example-icon {
+  padding: 0 14px;
+}
+
+.toolbar-background{
+  background: #ffffff !important;
+  font-family: 'Poppins', Regular !important;
+  width: 100%;
+  position: fixed;
+  z-index: 3;
+}
+.main-toolbar{
+  button{
+      font-family: 'Poppins',Regular;
+  }
+}
+#main{
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  // height: 100%;
+}
+.active{
+    background-color: #FF6484;
+    color: white;
+    box-shadow: $shadow-to-all;
+}
+
+.header-button button{
+  padding: 0px 20px;
+  margin: 0px 10px;
+}
+
+.nav{
+  text-decoration: none;
+  color: inherit;
+}

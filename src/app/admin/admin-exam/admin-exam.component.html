@@ -1,0 +1,135 @@
+<div class="exam-main-div">
+  <mat-tab-group mat-align-tabs="center">
+  
+    <mat-tab label="Fields"> 
+      
+      <div style="padding: 10px 0px;"></div>
+
+    <form [formGroup]="examFieldFormGroup">
+        <mat-form-field appearance="standard" class="form-field">
+            <input type="text" matInput formControlName="url" placeholder="Enter URL">
+        </mat-form-field>
+        
+        *Please Write Question Paper Name Properly
+
+        <mat-form-field appearance="standard" class="form-field">
+          <input type="text" matInput formControlName="questionPaperName" placeholder="Enter Question PaperName">
+        </mat-form-field>
+
+        <div class="sub-header">
+          <quill-editor placeholder="Enter Suggestions" [modules]="quillConfig.modules" formControlName="subHeader"></quill-editor>
+        </div>
+
+        <div fxLayout="row" fxLayoutAlign="end center">
+          <button mat-stroked-button (click)="addField()">Add Filed</button>
+        </div>
+
+        <div formArrayName="fields">
+            <div *ngFor="let filed of getFileds.controls;let fieldIndex=index" [formGroupName]="fieldIndex">
+              
+              <div fxLayout="row" fxLayoutAlign="end end">
+                <button mat-icon-button (click)="removeField(fieldIndex)">
+                  <mat-icon>remove_circle_outline</mat-icon>
+                </button>
+              </div>
+
+              <mat-form-field appearance="standard" class="form-field">
+                <input matInput formControlName="fieldName" placeholder="Enter Name">
+              </mat-form-field> 
+
+              <mat-form-field appearance="standard" class="form-field">
+                <input matInput formControlName="placeHolder" placeholder="Enter placeholder Name">
+              </mat-form-field>          
+  
+              <div fxLayout="row" fxLayoutAlign="space-between center" style="padding:0px 80px;">
+                <mat-checkbox formControlName="required">filed required</mat-checkbox>
+  
+                  <mat-form-field>
+                      <mat-label>Select Verification</mat-label>
+                      <mat-select formControlName="pattern">
+                          <mat-option value="">none</mat-option>
+                          <mat-option  value="^[6-9]\d{9}$">Mobile Number</mat-option>
+                          <mat-option 
+                          value='/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/'>
+                          Email Verify
+                      </mat-option>
+                      </mat-select>
+                  </mat-form-field> 
+              </div>
+
+            </div>
+          </div>
+
+        <button mat-raised-button color="primary" (click)="submitFields()">Submit</button>
+    </form>
+    </mat-tab>
+
+
+    
+    <mat-tab label="Question Paper"> 
+    
+      <div class="add-new" fxLayout="row" fxLayoutAlign="end center">
+        <div style="padding:0px 20px"></div>
+        <button mat-stroked-button (click)="addQuestion()">Add Question
+        </button>
+      </div>
+    
+      <form [formGroup]="examFormGroup">
+
+        <mat-form-field appearance="standard" class="form-field">
+          <input matInput formControlName="subjectName" placeholder="Enter Subject Name" />
+        </mat-form-field>
+        <mat-form-field appearance="standard" class="form-field">
+          <input matInput formControlName="headerName" placeholder="Enter Header Name" />
+        </mat-form-field>
+
+        <mat-form-field appearance="standard" class="form-field">
+          <input matInput formControlName="questionPaperName" placeholder="Enter Question Paper Name" />
+        </mat-form-field>
+
+        <div class="sub-header">
+          <quill-editor placeholder="Enter Suggestions" [modules]="quillConfig.modules" formControlName="suggestion"></quill-editor>
+        </div>
+
+        <div formArrayName="questions">
+          <div *ngFor="let item of getQuestions.controls; let pointIndex=index" [formGroupName]="pointIndex" class="all-form">
+              <div fxLayout="row" fxLayoutAlign="end center">
+                <button mat-icon-button (click)="removeQuestion(pointIndex)" matTooltip="Remove Question">
+                  <mat-icon>remove_circle_outline</mat-icon>
+                </button>
+              </div>
+              <span class="question-number">{{pointIndex+1}}.</span>
+              <mat-form-field appearance="standard" class="form-field">
+                <input matInput formControlName="question" placeholder="Enter Question" />
+              </mat-form-field>
+      
+              <div formArrayName="options" class="options">
+                <div *ngFor="let i of item.get('options').controls; let optionIndex=index" [formGroupName]="optionIndex" >
+                    <mat-form-field appearance="standard" class="option-form">
+                      <input matInput (change)="optionChangeValue(pointIndex,optionIndex,$event)" formControlName="option" placeholder="Enter options" />
+                    </mat-form-field>
+                </div>
+                <div class="add-option">
+                  <button mat-icon-button (click)="addOption(pointIndex)" matTooltip="Add Option">
+                    <mat-icon>add_circle_outline</mat-icon>
+                  </button>
+                </div>
+              </div>
+      
+              <mat-form-field class="form-field">
+                <mat-label>Answer</mat-label>
+                <mat-select formControlName="answer">
+                  <mat-option *ngFor="let item of answerOptions[pointIndex]" [value]="item.option">{{item.option}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+          </div>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="end center">
+          <button (click)="onSubmit()" mat-stroked-button color="primary">Submit Questions</button>
+        </div>
+      </form>
+    
+    </mat-tab>
+  </mat-tab-group>
+
+</div>

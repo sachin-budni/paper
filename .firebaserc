@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "tracker-c3f1e"
+  },
+  "targets": {
+    "tracker-c3f1e": {
+      "hosting": {
+        "paper": [
+          "paper-willntrix"
+        ]
+      }
+    }
+  }
+}

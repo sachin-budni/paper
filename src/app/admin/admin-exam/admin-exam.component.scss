@@ -1,0 +1,55 @@
+.exam-main-div{
+    width: calc(100% - 20px);
+    max-width: 900px;
+    margin: 0% auto;
+    padding: 10px;
+}
+
+.form-field{
+    width: calc(100% - 40px);
+    margin: 0px 10px;
+}
+
+.option-form{
+    max-width: 180px;
+    margin: 0px 10px;
+}
+p{
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+}
+
+.options{
+    display: flex;
+    flex-flow: wrap;
+    align-items: center;
+    flex-direction: row;
+    place-content: space-between;
+}
+
+.all-form{
+    margin: 20px 0px;
+    // border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    position: relative;
+}
+
+.question-number{
+    position: absolute;
+    top: 10%;
+    // left: 50%;
+    font-size: 200px;
+    opacity: 0.1;
+}
+.add-option{
+    margin-right: 20px;
+}
+
+.mycsssnackbartest {
+    background-color: blue;
+  }
+
+  .sub-header{
+      width:calc(100% - 40px);
+      margin: 0px 10px;
+  }

@@ -1,0 +1,22 @@
+.main-div{
+    width: 100%;
+    max-width: 1000px;
+    margin: 0% auto;
+    padding: 20px 0px;
+    
+}
+.paper{
+    width: 100%;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    color: black;
+}
+.paper:hover{
+    text-decoration: underline;
+    color: blueviolet;
+}
+
+p{
+    margin: 5px 0px;
+}
